@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-#container {
+#container1 ,#container2 {
   background-color: black;
   height: 70vh;
   display: flex;
@@ -24,4 +24,14 @@
   height: 200px;
   width: 200px;
   background-color: aliceblue;
+}
+.reset
+{
+  text-align: center;
+  padding : 100px;
+}
+#reset-button
+{
+  margin:auto;
+  font-size: 3rem;
 }

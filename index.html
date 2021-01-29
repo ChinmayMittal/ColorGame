@@ -10,16 +10,32 @@
       <h2>The Great</h2>
       <h1 id="header-clue">rgb(xxx,xxx,xxx)</h1>
       <h2>Guessing Game</h2>
+      <h2>number of tries: <span id="tries">0</span></h2>
     </div>
-    <div id="container">
+    <div id="container1">
       <div class="tile" id="1"></div>
       <div class="tile" id="2"></div>
+      <div class="tile" id="3"></div>
     </div>
+    <div id="container2">
+      <div class="tile" id="4"></div>
+      <div class="tile" id="5"></div>
+      <div class="tile" id="6"></div>
+    </div>
+<div class="reset">
+<button type="button" id="reset-button">try again </button>
+</div>
 
     <script>
       var t1 = document.getElementById("1");
       var t2 = document.getElementById("2");
+      var t3 = document.getElementById("3");
+      var t4 = document.getElementById("4");
+      var t5 = document.getElementById("5");
+      var t6 = document.getElementById("6");
+      var b=document.getElementById("reset-button");
       var x;
+      var n;
       var correctColor;
 
       function getRandomColor() {
@@ -30,26 +46,52 @@
         }
         return color;
       }
+      
 
       function newGame() {
         t1.style.background = getRandomColor();
         t2.style.background = getRandomColor();
-
-        x = Math.floor(Math.random() * 2 + 1);
+        t3.style.background = getRandomColor();
+        t4.style.background = getRandomColor();
+        t5.style.background = getRandomColor();
+        t6.style.background = getRandomColor();
+       n=0;
+       document.getElementById("tries").innerHTML=n;
+        x = Math.floor(Math.random() * 6 + 1);
 
         if (x == 1) correctColor = t1.style.background;
-        else correctColor = t2.style.background;
-        /* console.log(x);
-        console.log(correctColor); */
+        else if(x==2) correctColor = t2.style.background;
+        else if(x==3) correctColor = t3.style.background;
+        else if(x==4) correctColor = t4.style.background;
+        else if(x==5) correctColor = t5.style.background;
+        else  correctColor = t6.style.background;
+         console.log(x);
+        console.log(correctColor); 
 
         document.getElementById("header-clue").innerHTML = correctColor;
       }
 
+      b.addEventListener("click",function(){
+
+        newGame();
+       
+
+      }
+      );
+
       t1.addEventListener("click", function () {
         if (t1.style.background == correctColor) {
+          t1.style.background = correctColor;
           t2.style.background = correctColor;
+          t3.style.background = correctColor;
+          t4.style.background = correctColor;
+          t5.style.background = correctColor;
+          t6.style.background = correctColor;
           document.getElementById("header").style.background = correctColor;
         } else {
+          n++;
+        document.getElementById("tries").innerHTML=n;
+
           t1.style.background = "black";
         }
       });
@@ -57,11 +99,83 @@
       t2.addEventListener("click", function () {
         if (t2.style.background == correctColor) {
           t1.style.background = correctColor;
+          t2.style.background = correctColor;
+          t3.style.background = correctColor;
+          t4.style.background = correctColor;
+          t5.style.background = correctColor;
+          t6.style.background = correctColor;
           document.getElementById("header").style.background = correctColor;
         } else {
+          n++;
+        document.getElementById("tries").innerHTML=n;
+
           t2.style.background = "black";
         }
       });
-    </script>
+      t3.addEventListener("click", function () {
+        if (t3.style.background == correctColor) {
+          t1.style.background = correctColor;
+          t2.style.background = correctColor;
+          t3.style.background = correctColor;
+          t4.style.background = correctColor;
+          t5.style.background = correctColor;
+          t6.style.background = correctColor;
+          document.getElementById("header").style.background = correctColor;
+        } else {
+          n++;
+        document.getElementById("tries").innerHTML=n;
+
+          t3.style.background = "black";
+        }
+      });
+      t4.addEventListener("click", function () {
+        if (t4.style.background == correctColor) {
+          t1.style.background = correctColor;
+          t2.style.background = correctColor;
+          t3.style.background = correctColor;
+          t4.style.background = correctColor;
+          t5.style.background = correctColor;
+          t6.style.background = correctColor;
+          document.getElementById("header").style.background = correctColor;
+        } else {
+          n++;
+        document.getElementById("tries").innerHTML=n;
+
+          t4.style.background = "black";
+        }
+      });
+      t5.addEventListener("click", function () {
+        if (t5.style.background == correctColor) {
+          t1.style.background = correctColor;
+          t2.style.background = correctColor;
+          t3.style.background = correctColor;
+          t4.style.background = correctColor;
+          t5.style.background = correctColor;
+          t6.style.background = correctColor;
+          document.getElementById("header").style.background = correctColor;
+        } else {
+          n++;
+        document.getElementById("tries").innerHTML=n;
+
+          t5.style.background = "black";
+        }
+      });
+      t6.addEventListener("click", function () {
+        if (t6.style.background == correctColor) {
+          t1.style.background = correctColor;
+          t2.style.background = correctColor;
+          t3.style.background = correctColor;
+          t4.style.background = correctColor;
+          t5.style.background = correctColor;
+          t6.style.background = correctColor;
+          document.getElementById("header").style.background = correctColor;
+        } else {
+          n++;
+        document.getElementById("tries").innerHTML=n;
+
+          t6.style.background = "black";
+        }
+      });
+    </script> 
   </body>
 </html>
